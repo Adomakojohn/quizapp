@@ -11,9 +11,15 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  List<Topics> topic =[
+   const  Topics(imagePath: "Assets/icons/science.png", topicTitle: "Physics"),
+   const  Topics(imagePath: "Assets/icons/geometry.png", topicTitle: "Geometry"),
+   const  Topics(imagePath: "Assets/icons/chemistry.png", topicTitle: "Chemistry"),
+   const  Topics(imagePath: "Assets/icons/data-science.png", topicTitle: "Data Science"),
+  ];
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(backgroundColor: Colors.grey.shade200,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(10),
@@ -91,7 +97,11 @@ class _HomePageState extends State<HomePage> {
                   itemCount: 3,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
-                    return const RecentlyLearnt();
+                    return const RecentlyLearnt(
+                      questionsAnswered: "",
+                      subjectName: "",
+                      topicName: "",
+                    );
                   },
                 ),
               ),
@@ -105,9 +115,9 @@ class _HomePageState extends State<HomePage> {
                   itemCount: 4,
                   scrollDirection: Axis.vertical,
                   itemBuilder: (context, index) {
-                    return const Topics(
-                      ImagePath: "",
-                       topicTitle: "",
+                    return Topics(
+                      imagePath: topic[index].imagePath,
+                       topicTitle: topic[index].topicTitle,
                     );
                   },
                 ),

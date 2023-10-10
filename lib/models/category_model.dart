@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 class CategoryTypes extends StatefulWidget {
   final String categoryText;
   final String imagePath;
-  const CategoryTypes({super.key ,required this.imagePath, required this.categoryText});
+  const CategoryTypes(
+      {super.key, required this.imagePath, required this.categoryText});
 
   @override
   State<CategoryTypes> createState() => _CategoryTypesState();
@@ -14,15 +15,24 @@ class _CategoryTypesState extends State<CategoryTypes> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: ClipRRect(borderRadius: BorderRadius.circular(24),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(24),
         child: Container(
           height: 45,
           width: 117,
-          color:Colors.grey.shade300,
-          child:  Row(
+          color: Colors.white,
+          child: Row(
             children: [
-              Image.asset(widget.imagePath , width: 30, height: 30,),
-              Text(widget.categoryText, style:const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),)
+              Image.asset(
+                widget.imagePath,
+                width: 30,
+                height: 30,
+              ),
+              Text(
+                widget.categoryText,
+                style:
+                    const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+              )
             ],
           ),
         ),
@@ -31,10 +41,11 @@ class _CategoryTypesState extends State<CategoryTypes> {
   }
 }
 
-
-
 class RecentlyLearnt extends StatefulWidget {
-  const RecentlyLearnt({super.key});
+  final String subjectName;
+  final String topicName;
+  final String questionsAnswered;
+  const RecentlyLearnt({super.key, required this.subjectName, required this.topicName, required this.questionsAnswered});
 
   @override
   State<RecentlyLearnt> createState() => _RecentlyLearntState();
@@ -45,22 +56,41 @@ class _RecentlyLearntState extends State<RecentlyLearnt> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(7),
-      child: ClipRRect( borderRadius: BorderRadius.circular(30),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(30),
         child: Container(
           height: 100,
           width: 350,
-          color: Colors.black45,
+          color: Colors.white,
+          child: Column(crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                height: 50,
+                width: 50,
+                color: Colors.black,
+              ),
+              const Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                Text("Subject name :"),
+                Text(" Topic name.")
+              ],),
+              const Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                Text("Subject name :"),
+                Text(" Topic name.")
+              ],),
+            ],
+          ),
         ),
       ),
     );
   }
 }
 
-
 class Topics extends StatefulWidget {
-  final String ImagePath;
+  final String imagePath;
   final String topicTitle;
-  const Topics({super.key , required this.ImagePath, required this.topicTitle});
+  const Topics({super.key, required this.imagePath, required this.topicTitle});
 
   @override
   State<Topics> createState() => _TopicsState();
@@ -71,15 +101,26 @@ class _TopicsState extends State<Topics> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(7),
-      child: ClipRRect( borderRadius: BorderRadius.circular(30),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(30),
         child: Container(
           height: 360,
           width: 200,
-          color: Colors.black45,
+          color: Colors.white,
           child: Column(
             children: [
-              Image.asset(widget.ImagePath),
-              Text(widget.topicTitle)
+              Image.asset(
+                widget.imagePath,
+                width: 160,
+                height: 160,
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Text(
+                widget.topicTitle,
+                style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w400, ),
+              )
             ],
           ),
         ),
