@@ -45,7 +45,11 @@ class RecentlyLearnt extends StatefulWidget {
   final String subjectName;
   final String topicName;
   final String questionsAnswered;
-  const RecentlyLearnt({super.key, required this.subjectName, required this.topicName, required this.questionsAnswered});
+  const RecentlyLearnt(
+      {super.key,
+      required this.subjectName,
+      required this.topicName,
+      required this.questionsAnswered});
 
   @override
   State<RecentlyLearnt> createState() => _RecentlyLearntState();
@@ -62,25 +66,7 @@ class _RecentlyLearntState extends State<RecentlyLearnt> {
           height: 100,
           width: 350,
           color: Colors.white,
-          child: Column(crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Container(
-                height: 50,
-                width: 50,
-                color: Colors.black,
-              ),
-              const Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                Text("Subject name :"),
-                Text(" Topic name.")
-              ],),
-              const Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                Text("Subject name :"),
-                Text(" Topic name.")
-              ],),
-            ],
-          ),
+         
         ),
       ),
     );
@@ -119,7 +105,10 @@ class _TopicsState extends State<Topics> {
               ),
               Text(
                 widget.topicTitle,
-                style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w400, ),
+                style: const TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.w400,
+                ),
               )
             ],
           ),
