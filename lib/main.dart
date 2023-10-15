@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quizapp/screens/bottom_nav_bar.dart';
-import 'package:quizapp/screens/home_screen.dart';
+
 
 void main(){
   runApp(const MyApp());

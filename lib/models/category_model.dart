@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quizapp/screens/notification_screen.dart';
 
 class CategoryTypes extends StatefulWidget {
   final String categoryText;
@@ -87,30 +88,35 @@ class _TopicsState extends State<Topics> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(7),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(30),
-        child: Container(
-          height: 360,
-          width: 200,
-          color: Colors.white,
-          child: Column(
-            children: [
-              Image.asset(
-                widget.imagePath,
-                width: 160,
-                height: 160,
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Text(
-                widget.topicTitle,
-                style: const TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.w400,
+      child: GestureDetector(
+        onTap: () {
+          const NotificationPage();
+        },
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(30),
+          child: Container(
+            height: 360,
+            width: 200,
+            color: Colors.white,
+            child: Column(
+              children: [
+                Image.asset(
+                  widget.imagePath,
+                  width: 160,
+                  height: 160,
                 ),
-              )
-            ],
+                const SizedBox(
+                  height: 20,
+                ),
+                Text(
+                  widget.topicTitle,
+                  style: const TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.w400,
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),
