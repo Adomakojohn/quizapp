@@ -46,11 +46,12 @@ class RecentlyLearnt extends StatefulWidget {
   final String subjectName;
   final String topicName;
   final String questionsAnswered;
+  final child;
   const RecentlyLearnt(
       {super.key,
       required this.subjectName,
       required this.topicName,
-      required this.questionsAnswered});
+      required this.questionsAnswered, required this.child});
 
   @override
   State<RecentlyLearnt> createState() => _RecentlyLearntState();
@@ -67,7 +68,21 @@ class _RecentlyLearntState extends State<RecentlyLearnt> {
           height: 100,
           width: 350,
           color: Colors.white,
-         
+         child: Padding(
+           padding: const EdgeInsets.all(16),
+           child: Column( mainAxisAlignment: MainAxisAlignment.start,
+           crossAxisAlignment: CrossAxisAlignment.start,
+            children:  [
+             const  Icon(Icons.timer_outlined, size: 30,),
+              Text(widget.subjectName),
+              Text(widget.topicName),
+              Container(
+                child: widget.child,
+              ),
+              Text(widget.questionsAnswered)
+            ],
+           ),
+         ),
         ),
       ),
     );

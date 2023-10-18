@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:quizapp/models/category_model.dart';
+import 'package:percent_indicator/percent_indicator.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -89,7 +90,12 @@ class _HomePageState extends State<HomePage> {
                       imagePath: "Assets/icons/colour.png"),
                 ],
               ),
-             const  Text("Recently opened", style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700),),
+            const Row( mainAxisAlignment: MainAxisAlignment.spaceBetween,
+               children: [
+                   Text("Recently opened", style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700),),
+                   Text("View All", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),),
+               ],
+             ),
               Container(
                 height: 140,
                 width: double.infinity,
@@ -97,10 +103,12 @@ class _HomePageState extends State<HomePage> {
                   itemCount: 3,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
-                    return const RecentlyLearnt(
-                      questionsAnswered: "",
-                      subjectName: "",
-                      topicName: "",
+                    return RecentlyLearnt(
+                      subjectName: "Maths",
+                      topicName: "80 questions answered",
+                        questionsAnswered: "100 questions",
+                      child: LinearProgressIndicator(borderRadius: BorderRadius.circular(20),minHeight: 10,
+                        value: 80/100, color: Colors.green,backgroundColor: Colors.black),
                     );
                   },
                 ),
