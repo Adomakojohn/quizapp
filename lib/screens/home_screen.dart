@@ -12,15 +12,54 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<Topics> topic =[
-   const  Topics(imagePath: "Assets/icons/science.png", topicTitle: "Physics"),
-   const  Topics(imagePath: "Assets/icons/geometry.png", topicTitle: "Geometry"),
-   const  Topics(imagePath: "Assets/icons/chemistry.png", topicTitle: "Chemistry"),
-   const  Topics(imagePath: "Assets/icons/data-science.png", topicTitle: "Data Science"),
+  List<RecentlyLearnt> recentlyOpened = [
+    RecentlyLearnt(
+        subjectName: "Maths",
+        topicName: "150 questions answered",
+        questionsAnswered: "1000 questions",
+        child: LinearProgressIndicator(
+          backgroundColor: Colors.black,
+          color: Colors.green,
+          value: 20 / 100,
+          minHeight: 7,
+          borderRadius: BorderRadius.circular(22),
+        )),
+    RecentlyLearnt(
+        subjectName: "DSA",
+        topicName: "300 questions answered",
+        questionsAnswered: "600 questions",
+        child: LinearProgressIndicator(
+          backgroundColor: Colors.black,
+          color: Colors.green,
+          value: 50 / 100,
+          minHeight: 7,
+          borderRadius: BorderRadius.circular(22),
+        )),
+    RecentlyLearnt(
+        subjectName: "General Knowledge",
+        topicName: "170 questions answered",
+        questionsAnswered: "900 questions",
+        child: LinearProgressIndicator(
+          backgroundColor: Colors.black,
+          color: Colors.green,
+          value: 19 / 100,
+          minHeight: 7,
+          borderRadius: BorderRadius.circular(22),
+        )),
+  ];
+  List<Topics> topic = [
+    const Topics(imagePath: "Assets/icons/science.png", topicTitle: "Physics"),
+    const Topics(
+        imagePath: "Assets/icons/geometry.png", topicTitle: "Geometry"),
+    const Topics(
+        imagePath: "Assets/icons/chemistry.png", topicTitle: "Chemistry"),
+    const Topics(
+        imagePath: "Assets/icons/data-science.png", topicTitle: "Data Science"),
   ];
   @override
   Widget build(BuildContext context) {
-    return Scaffold(backgroundColor: Colors.grey.shade200,
+    return Scaffold(
+      backgroundColor: Colors.grey.shade200,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(10),
@@ -57,65 +96,57 @@ class _HomePageState extends State<HomePage> {
               const SizedBox(
                 height: 18,
               ),
-              const Text(
-                "Category",
-                style: TextStyle(fontSize: 25, fontWeight: FontWeight.w700),
-              ),
-              const SizedBox(
-                height: 18,
-              ),
-               const SingleChildScrollView( physics:NeverScrollableScrollPhysics(),
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
-                    CategoryTypes(
-                        categoryText: "Product q",
-                        imagePath: "Assets/icons/color-blocks.png"),
-                    CategoryTypes(
-                        categoryText: "Food quiz",
-                        imagePath: "Assets/icons/fast-food.png"),
-                    CategoryTypes(
-                        categoryText: "Puzzel quiz",
-                        imagePath: "Assets/icons/jigsaw.png"),
-                  ],
-                ),
-              ),
-               const Row(
+              
+              
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  CategoryTypes(
-                      categoryText: "Fun quiz",
-                      imagePath: "Assets/icons/party.png"),
-                  CategoryTypes(
-                      categoryText: "Color quiz",
-                      imagePath: "Assets/icons/colour.png"),
+                  Text(
+                    "Recently opened",
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
+                  ),
+                  Text(
+                    "View All",
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+                  ),
                 ],
               ),
-            const Row( mainAxisAlignment: MainAxisAlignment.spaceBetween,
-               children: [
-                   Text("Recently opened", style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700),),
-                   Text("View All", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),),
-               ],
-             ),
               Container(
                 height: 140,
                 width: double.infinity,
-                child: ListView.builder( physics: const  BouncingScrollPhysics(),
+                child: ListView.builder(
+                  physics: const BouncingScrollPhysics(),
                   itemCount: 3,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
                     return RecentlyLearnt(
-                      subjectName: "Maths",
-                      topicName: "80 questions answered",
-                        questionsAnswered: "100 questions",
-                      child: LinearProgressIndicator(borderRadius: BorderRadius.circular(20),minHeight: 10,
-                        value: 80/100, color: Colors.green,backgroundColor: Colors.black),
-                    );
+                        subjectName: recentlyOpened[index].subjectName,
+                        topicName: recentlyOpened[index].topicName,
+                        questionsAnswered:
+                            recentlyOpened[index].questionsAnswered,
+                        child: recentlyOpened[index].child);
                   },
                 ),
               ),
-              const SizedBox(height: 10,),
+              const SizedBox(
+                height: 10,
+              ),
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Topics",
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
+                  ),
+                  Text(
+                    "View All",
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+                  ),
+                ],
+              ),
               Expanded(
-                child: GridView.builder(physics:const  BouncingScrollPhysics(),
+                child: GridView.builder(
+                  physics: const BouncingScrollPhysics(),
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       childAspectRatio: MediaQuery.of(context).size.width /
@@ -125,7 +156,7 @@ class _HomePageState extends State<HomePage> {
                   itemBuilder: (context, index) {
                     return Topics(
                       imagePath: topic[index].imagePath,
-                       topicTitle: topic[index].topicTitle,
+                      topicTitle: topic[index].topicTitle,
                     );
                   },
                 ),

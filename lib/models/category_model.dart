@@ -69,17 +69,17 @@ class _RecentlyLearntState extends State<RecentlyLearnt> {
           width: 350,
           color: Colors.white,
          child: Padding(
-           padding: const EdgeInsets.all(16),
+           padding: const EdgeInsets.all(13),
            child: Column( mainAxisAlignment: MainAxisAlignment.start,
            crossAxisAlignment: CrossAxisAlignment.start,
             children:  [
-             const  Icon(Icons.timer_outlined, size: 30,),
-              Text(widget.subjectName),
-              Text(widget.topicName),
+             const  Icon(Icons.access_time_outlined, size: 30,),
+              Text(widget.subjectName, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w500),),
+              Text(widget.topicName,style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w500),),
               Container(
                 child: widget.child,
               ),
-              Text(widget.questionsAnswered)
+              Text(widget.questionsAnswered,style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w400),)
             ],
            ),
          ),
