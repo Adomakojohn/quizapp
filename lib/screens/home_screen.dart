@@ -96,13 +96,47 @@ class _HomePageState extends State<HomePage> {
               const SizedBox(
                 height: 18,
               ),
-              
-              
+              ClipRRect(
+                borderRadius: BorderRadius.circular(35),
+                child: Container(
+                  color: Colors.white,
+                  height: 120,
+                  width: double.infinity,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      CircularPercentIndicator(
+                        radius: 30,
+                        percent: 70 / 100,
+                        curve: Curves.easeInSine,
+                        animation: true,
+                        restartAnimation: true,
+                        center: const Text(
+                          "70%",
+                          style: TextStyle(
+                              fontSize: 19, fontWeight: FontWeight.w700),
+                        ),
+                        progressColor: Colors.green,
+                        startAngle: 125.0,
+                      ),
+                       Column(mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                         const Text("Complete the daily quiz 🔥", style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),),
+                          Text("5 out of 20 questions answered",style: TextStyle(fontSize: 18, color: Colors.grey.shade700),)
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
               const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "Recently opened",
+                    "Learning",
                     style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
                   ),
                   Text(
