@@ -66,13 +66,41 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                "Hello , Ryan !",
-                style: TextStyle(fontSize: 25, fontWeight: FontWeight.w700),
-              ),
-              Text(
-                "Let's learn something today",
-                style: TextStyle(fontSize: 18, color: Colors.grey.shade600),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        "Hello Ryan ",
+                        style: TextStyle(
+                            fontSize: 25, fontWeight: FontWeight.w700),
+                      ),
+                      Text(
+                        "Let's learn something today",
+                        style: TextStyle(
+                            fontSize: 18, color: Colors.grey.shade600),
+                      ),
+                    ],
+                  ),
+                  Container(
+                    alignment: Alignment.center,
+                    height: 45,
+                    width: 45,
+                    decoration: BoxDecoration(
+                      color: Colors.transparent,
+                      borderRadius: BorderRadius.circular(8),
+                      border: const Border(
+                        right: BorderSide(width: 1,),
+                        left: BorderSide(width: 1),
+                        top: BorderSide(width: 1),
+                        bottom: BorderSide(width: 1),
+                      ),
+                    ),
+                    child: const Text("🔥6" , style: TextStyle(fontSize: 20),),
+                  )
+                ],
               ),
               const SizedBox(
                 height: 28,
@@ -119,10 +147,19 @@ class _HomePageState extends State<HomePage> {
                         progressColor: Colors.green,
                         startAngle: 125.0,
                       ),
-                       Column(mainAxisAlignment: MainAxisAlignment.center,
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                         const Text("Complete the daily quiz 🔥", style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),),
-                          Text("5 out of 20 questions answered",style: TextStyle(fontSize: 18, color: Colors.grey.shade700),)
+                          const Text(
+                            "Complete the daily quiz 🔥",
+                            style: TextStyle(
+                                fontSize: 25, fontWeight: FontWeight.w500),
+                          ),
+                          Text(
+                            "14 out of 20 questions answered",
+                            style: TextStyle(
+                                fontSize: 18, color: Colors.grey.shade700),
+                          )
                         ],
                       )
                     ],
