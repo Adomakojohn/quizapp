@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:percent_indicator/percent_indicator.dart';
 
 class AnalyticsPage extends StatefulWidget {
   const AnalyticsPage({super.key});
@@ -30,6 +31,20 @@ class _AnalyticsPageState extends State<AnalyticsPage> {
                 height: 220,
                 width:385,
                 color: Colors.grey.shade400,
+                child:  Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    CircularPercentIndicator(radius: 70,),
+                    const Column(mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("PROMOTERS"),
+                        Text("the"),
+                        Text("the"),
+                        Text("the"),
+                        Text("the"),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           )
