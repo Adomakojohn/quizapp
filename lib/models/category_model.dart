@@ -138,3 +138,27 @@ class _TopicsState extends State<Topics> {
     );
   }
 }
+
+
+class AnalyticsDets extends StatefulWidget {
+  const AnalyticsDets({super.key});
+
+  @override
+  State<AnalyticsDets> createState() => _AnalyticsDetsState();
+}
+
+class _AnalyticsDetsState extends State<AnalyticsDets> {
+  @override
+  Widget build(BuildContext context) {
+    return  Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: ClipRRect(borderRadius: BorderRadius.circular(20),
+        child: Container(
+          height: 140,
+          width: 200,
+          color: Colors.black,
+        ),
+      ),
+    );
+  }
+}
