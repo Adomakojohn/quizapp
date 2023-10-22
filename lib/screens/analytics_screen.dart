@@ -1,8 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:percent_indicator/percent_indicator.dart';
 import 'package:quizapp/models/category_model.dart';
-import 'package:quizapp/screens/home_screen.dart';
 
 class AnalyticsPage extends StatefulWidget {
   const AnalyticsPage({super.key});

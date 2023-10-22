@@ -133,7 +133,7 @@ class _HomePageState extends State<HomePage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      CircularPercentIndicator(
+                      CircularPercentIndicator(animationDuration: 850,
                         radius: 30,
                         percent: 70 / 100,
                         curve: Curves.easeInSine,

@@ -156,7 +156,7 @@ class _AnalyticsDetsState extends State<AnalyticsDets> {
         child: Container(
           height: 140,
           width: 200,
-          color: Colors.black,
+          color: Colors.grey.shade400,
         ),
       ),
     );
