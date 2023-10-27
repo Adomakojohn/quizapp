@@ -1,5 +1,8 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:quizapp/screens/notification_screen.dart';
+import 'package:fl_chart/fl_chart.dart';
 
 class CategoryTypes extends StatefulWidget {
   final String categoryText;
@@ -51,7 +54,8 @@ class RecentlyLearnt extends StatefulWidget {
       {super.key,
       required this.subjectName,
       required this.topicName,
-      required this.questionsAnswered, required this.child});
+      required this.questionsAnswered,
+      required this.child});
 
   @override
   State<RecentlyLearnt> createState() => _RecentlyLearntState();
@@ -68,21 +72,37 @@ class _RecentlyLearntState extends State<RecentlyLearnt> {
           height: 100,
           width: 350,
           color: Colors.white,
-         child: Padding(
-           padding: const EdgeInsets.all(13),
-           child: Column( mainAxisAlignment: MainAxisAlignment.start,
-           crossAxisAlignment: CrossAxisAlignment.start,
-            children:  [
-             const  Icon(Icons.access_time_outlined, size: 30,),
-              Text(widget.subjectName, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w500),),
-              Text(widget.topicName,style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w500),),
-              Container(
-                child: widget.child,
-              ),
-              Text(widget.questionsAnswered,style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w400),)
-            ],
-           ),
-         ),
+          child: Padding(
+            padding: const EdgeInsets.all(13),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Icon(
+                  Icons.access_time_outlined,
+                  size: 30,
+                ),
+                Text(
+                  widget.subjectName,
+                  style: const TextStyle(
+                      fontSize: 18, fontWeight: FontWeight.w500),
+                ),
+                Text(
+                  widget.topicName,
+                  style: const TextStyle(
+                      fontSize: 15, fontWeight: FontWeight.w500),
+                ),
+                Container(
+                  child: widget.child,
+                ),
+                Text(
+                  widget.questionsAnswered,
+                  style: const TextStyle(
+                      fontSize: 18, fontWeight: FontWeight.w400),
+                )
+              ],
+            ),
+          ),
         ),
       ),
     );
@@ -139,7 +159,6 @@ class _TopicsState extends State<Topics> {
   }
 }
 
-
 class AnalyticsDets extends StatefulWidget {
   const AnalyticsDets({super.key});
 
@@ -150,13 +169,51 @@ class AnalyticsDets extends StatefulWidget {
 class _AnalyticsDetsState extends State<AnalyticsDets> {
   @override
   Widget build(BuildContext context) {
-    return  Padding(
+    return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: ClipRRect(borderRadius: BorderRadius.circular(20),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(20),
         child: Container(
+          alignment: Alignment.center,
           height: 140,
           width: 200,
-          color: Colors.grey.shade400,
+          color: Colors.black,
+          child: SizedBox(
+            child: LineChart(
+              LineChartData(
+                minX: 3,
+                maxX: 11,
+                minY: 0,
+                maxY: 15,
+                lineBarsData: [
+                  LineChartBarData(
+                    isCurved: true,
+                    barWidth: 3,
+                    dotData: const FlDotData(show: false),
+                    gradient: const LinearGradient(
+                      colors: [
+                        Colors.blue,
+                        Colors.green,
+                      ],
+                    ),
+                    belowBarData: BarAreaData(
+                      show: true,
+                    ),
+                    spots: const [
+                      FlSpot(0, 1),
+                      FlSpot(2, 7),
+                      FlSpot(4, 2),
+                      FlSpot(6, 9),
+                      FlSpot(9, 3),
+                      FlSpot(10, 13),
+                      FlSpot(13, 2),
+                      FlSpot(14, 15),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
         ),
       ),
     );

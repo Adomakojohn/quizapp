@@ -68,12 +68,13 @@ class _AnalyticsPageState extends State<AnalyticsPage> {
               ),
             ),
             Expanded(
-                child: GridView.builder(itemCount: 3,
+                child: GridView.builder(
+              itemCount: 3,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2, 
-                  childAspectRatio: MediaQuery.of(context).size.width /
-                          (MediaQuery.of(context).size.height / 2.4),
-                  ),
+                crossAxisCount: 2,
+                childAspectRatio: MediaQuery.of(context).size.width /
+                    (MediaQuery.of(context).size.height / 2.2),
+              ),
               itemBuilder: (context, index) {
                 return const AnalyticsDets();
               },
