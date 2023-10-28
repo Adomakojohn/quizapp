@@ -178,40 +178,42 @@ class _AnalyticsDetsState extends State<AnalyticsDets> {
           height: 140,
           width: 200,
           color: Colors.black,
-          child: SizedBox(
-            child: LineChart(
-              LineChartData(
-                minX: 3,
-                maxX: 11,
-                minY: 0,
-                maxY: 15,
-                lineBarsData: [
-                  LineChartBarData(
-                    isCurved: true,
-                    barWidth: 3,
-                    dotData: const FlDotData(show: false),
-                    gradient: const LinearGradient(
-                      colors: [
-                        Colors.blue,
-                        Colors.green,
-                      ],
-                    ),
-                    belowBarData: BarAreaData(
-                      show: true,
-                    ),
-                    spots: const [
-                      FlSpot(0, 1),
-                      FlSpot(2, 7),
-                      FlSpot(4, 2),
-                      FlSpot(6, 9),
-                      FlSpot(9, 3),
-                      FlSpot(10, 13),
-                      FlSpot(13, 2),
-                      FlSpot(14, 15),
+          child: LineChart(
+            LineChartData( gridData: const FlGridData(
+              show: true,
+              drawHorizontalLine: false,
+              drawVerticalLine: false,
+            ),
+            minX: 3,
+              maxX: 9,
+              minY: 1,
+              maxY: 12,
+              lineBarsData: [
+                LineChartBarData(
+                  isCurved: true,
+                  barWidth: 3,
+                  dotData: const FlDotData(show: false),
+                  gradient: const LinearGradient(
+                    colors: [
+                      Colors.blue,
+                      Colors.green,
                     ],
                   ),
-                ],
-              ),
+                  belowBarData: BarAreaData(
+                    show: true,
+                  ),
+                  spots: const [
+                    FlSpot(0, 1),
+                    FlSpot(2, 7),
+                    FlSpot(4, 2),
+                    FlSpot(6, 9),
+                    FlSpot(9, 3),
+                    FlSpot(10, 13),
+                    FlSpot(13, 2),
+                    FlSpot(14, 15),
+                  ],
+                ),
+              ],
             ),
           ),
         ),
