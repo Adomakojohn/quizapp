@@ -179,12 +179,13 @@ class _AnalyticsDetsState extends State<AnalyticsDets> {
           width: 200,
           color: Colors.black,
           child: LineChart(
-            LineChartData( gridData: const FlGridData(
-              show: true,
-              drawHorizontalLine: false,
-              drawVerticalLine: false,
-            ),
-            minX: 3,
+            LineChartData(
+              gridData: const FlGridData(
+                show: true,
+                drawHorizontalLine: false,
+                drawVerticalLine: false,
+              ),
+              minX: 3,
               maxX: 9,
               minY: 1,
               maxY: 12,
@@ -218,6 +219,32 @@ class _AnalyticsDetsState extends State<AnalyticsDets> {
           ),
         ),
       ),
+    );
+  }
+}
+
+class LeaderBoardProfile extends StatefulWidget {
+  final  String imagePath;
+  final String nameTitle;
+  final String subtitle;
+  const LeaderBoardProfile({super.key , required this.imagePath, required this.nameTitle , required this.subtitle});
+
+  @override
+  State<LeaderBoardProfile> createState() => _LeaderBoardProfileState();
+}
+
+class _LeaderBoardProfileState extends State<LeaderBoardProfile> {
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      trailing: const Icon(Icons.arrow_forward_ios_outlined),
+      contentPadding: const EdgeInsets.all(10),
+      title: Text( widget.nameTitle, style: const TextStyle(fontSize: 20 , fontWeight: FontWeight.w500),),
+      leading: CircleAvatar(
+        radius: 30,
+        backgroundImage: AssetImage(widget.imagePath),
+      ),
+      subtitle: Text(widget.subtitle , style: const TextStyle(fontSize: 19 , fontWeight: FontWeight.w400, ),),
     );
   }
 }
