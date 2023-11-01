@@ -10,7 +10,7 @@ class BottomNavBar extends StatefulWidget {
 }
 
 class _BottomNavBarState extends State<BottomNavBar> {
-  final List _pages = [const HomePage(),Container(),Container(),Container(),];
+  final List _pages = [const HomePage(),Container(),Container(),];
   int _selectedIndex = 0;
   void _navigateBottomBar(int index) {
     setState(() {
@@ -42,13 +42,6 @@ class _BottomNavBarState extends State<BottomNavBar> {
           BottomNavigationBarItem(
               icon: Image.asset(
                 "Assets/icons/not1.png",
-                width: 35,
-                height: 35,
-              ),
-              label: ""),
-          BottomNavigationBarItem(
-              icon: Image.asset(
-                "Assets/icons/user.png",
                 width: 35,
                 height: 35,
               ),
