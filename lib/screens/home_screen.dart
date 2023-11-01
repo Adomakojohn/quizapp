@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
+import 'package:quizapp/models/learning_model.dart';
 import 'package:quizapp/models/your_quiz_model.dart';
 
 class HomePage extends StatefulWidget {
@@ -11,9 +11,21 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final List<LearningModel> learningModel = [
+   const LearningModel(learningText: "Interview most asked", learningTextTwo: "questions", imagePath:"Assets/images/exam.jpg"),
+   const LearningModel(learningText: "Data Structures", learningTextTwo: "and Algorithm questions", imagePath:"Assets/images/mac.jpg"),
+   const LearningModel(learningText: "Introduction to web", learningTextTwo: " development questions", imagePath:"Assets/images/exam2.jpg"),
+  ];
+
+  final List <YourQuizModel> yourQuizModel=[
+    const YourQuizModel(subjectName: "Physics", answeredQuestion: "67 questions answered", questions:"120", progressValue: 0.67),
+    const YourQuizModel(subjectName: "DSA(Javascript)", answeredQuestion: "89 questions answered", questions:"200", progressValue: 0.46),
+    const YourQuizModel(subjectName: "Calculus 2", answeredQuestion: "67 questions answered", questions:"120", progressValue: 0.67),
+  ];
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold( 
+      backgroundColor: Colors.grey.shade200,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -139,18 +151,88 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ],
                 ),
-                SizedBox(height: 300, width: double.infinity,
-                  child: ListView.builder(scrollDirection: Axis.horizontal,
-                  itemCount: 3,
+                SizedBox(
+                  height: 140,
+                  width: double.infinity,
+                  child: ListView.builder(
+                    physics: const BouncingScrollPhysics(),
+                    scrollDirection: Axis.horizontal,
+                    itemCount: 3,
                     itemBuilder: (context, index) {
-                      return const YourQuizModel(
-                        subjectName: "testing",
-                        answeredQuestion: "testing",
-                        questions: "testing",
+                      return YourQuizModel(
+                        subjectName:yourQuizModel[index].subjectName,
+                        answeredQuestion: yourQuizModel[index].answeredQuestion,
+                        questions: yourQuizModel[index].questions,
+                        progressValue: yourQuizModel[index].progressValue,
                       );
                     },
                   ),
-                )
+                ),
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Learning",
+                      style:
+                          TextStyle(fontSize: 19, fontWeight: FontWeight.w500),
+                    ),
+                    Text(
+                      "view all",
+                      style: TextStyle(
+                          fontSize: 19,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.blue),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 170, width: double.infinity,
+                  child: ListView.builder( 
+                    physics: const BouncingScrollPhysics(
+                      decelerationRate: ScrollDecelerationRate.fast
+                    ),
+                    itemCount: 3,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      return  LearningModel(
+                        learningText: learningModel[index].learningText,
+                        learningTextTwo: learningModel[index].learningTextTwo,
+                        imagePath:learningModel[index].imagePath,
+                      );
+                    },
+                  ),
+                ),
+                const Text("Sections" , style: TextStyle(fontSize: 19, letterSpacing: 2),),
+               SizedBox(height: 300, width: double.infinity,
+                 child: ListView(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        width: 300, height: 90,
+                        decoration: const BoxDecoration(color: Colors.brown,
+                          borderRadius: BorderRadius.all(Radius.circular(12)),),
+                      ),
+                    ),
+                     Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        width: 300, height: 90,
+                        decoration: const BoxDecoration(color: Colors.brown,
+                          borderRadius: BorderRadius.all(Radius.circular(12)),),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        width: 300, height: 90,
+                        decoration: const BoxDecoration(color: Colors.brown,
+                          borderRadius: BorderRadius.all(Radius.circular(12)),),
+                      ),
+                    ),
+                  ],
+                 ),
+               )
               ],
             ),
           ),
