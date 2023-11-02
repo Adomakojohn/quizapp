@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quizapp/screens/home_screen.dart';
+import 'package:quizapp/screens/settings_screen.dart';
 
 
 class BottomNavBar extends StatefulWidget {
@@ -10,7 +11,7 @@ class BottomNavBar extends StatefulWidget {
 }
 
 class _BottomNavBarState extends State<BottomNavBar> {
-  final List _pages = [const HomePage(),Container(),Container(),];
+  final List _pages = [const HomePage(),Container(),const SettingsPage()];
   int _selectedIndex = 0;
   void _navigateBottomBar(int index) {
     setState(() {
