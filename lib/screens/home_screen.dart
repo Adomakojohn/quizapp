@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:quizapp/models/learning_model.dart';
+import 'package:quizapp/models/sections_model.dart';
 import 'package:quizapp/models/your_quiz_model.dart';
 
 class HomePage extends StatefulWidget {
@@ -18,9 +19,14 @@ class _HomePageState extends State<HomePage> {
   ];
 
   final List <YourQuizModel> yourQuizModel=[
-    const YourQuizModel(subjectName: "Physics", answeredQuestion: "67 questions answered", questions:"120", progressValue: 0.67),
-    const YourQuizModel(subjectName: "DSA(Javascript)", answeredQuestion: "89 questions answered", questions:"200", progressValue: 0.46),
-    const YourQuizModel(subjectName: "Calculus 2", answeredQuestion: "67 questions answered", questions:"120", progressValue: 0.67),
+    const YourQuizModel(subjectName: "Physics", answeredQuestion: "67 questions answered", questions:"120 questions", progressValue: 0.67),
+    const YourQuizModel(subjectName: "DSA(Javascript)", answeredQuestion: "89 questions answered", questions:"200 questions", progressValue: 0.46),
+    const YourQuizModel(subjectName: "Calculus 2", answeredQuestion: "67 questions answered", questions:"120 questions", progressValue: 0.67),
+  ];
+  final List<SectionsModel> sectionsModel =[
+    const SectionsModel(title: "Data Structures and Algorithms", subtitle:"Learn data structures and algorithms"),
+     const SectionsModel(title: "Web development", subtitle:"Navigate your way through the world of web development with html , css and javascript"),
+      const SectionsModel(title: "Calculus I & II", subtitle:"Start your journey in the math world"),
   ];
   @override
   Widget build(BuildContext context) {
@@ -204,33 +210,11 @@ class _HomePageState extends State<HomePage> {
                 ),
                 const Text("Sections" , style: TextStyle(fontSize: 19, letterSpacing: 2),),
                SizedBox(height: 300, width: double.infinity,
-                 child: ListView(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        width: 300, height: 90,
-                        decoration: const BoxDecoration(color: Colors.brown,
-                          borderRadius: BorderRadius.all(Radius.circular(12)),),
-                      ),
-                    ),
-                     Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        width: 300, height: 90,
-                        decoration: const BoxDecoration(color: Colors.brown,
-                          borderRadius: BorderRadius.all(Radius.circular(12)),),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        width: 300, height: 90,
-                        decoration: const BoxDecoration(color: Colors.brown,
-                          borderRadius: BorderRadius.all(Radius.circular(12)),),
-                      ),
-                    ),
-                  ],
+                 child: ListView.builder( physics: const BouncingScrollPhysics(),
+                  itemCount: 3,
+                  itemBuilder :(context, index) {
+                    return SectionsModel(title:sectionsModel[index].title, subtitle:sectionsModel[index].subtitle);
+                  },
                  ),
                )
               ],

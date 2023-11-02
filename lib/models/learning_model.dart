@@ -46,10 +46,10 @@ class _LearningModelState extends State<LearningModel> {
                     height: 22,
                     width: 22,
                   ),
-                  Text(widget.learningText , style:const  TextStyle(fontSize: 19),),
+                  Text(widget.learningText , style:const  TextStyle(fontSize: 19 , fontWeight: FontWeight.w500,),),
                 ],
               ),
-              Text(widget.learningTextTwo , style:const  TextStyle(fontSize: 17),),
+              Text(widget.learningTextTwo , style:const  TextStyle(fontSize: 17 , fontWeight: FontWeight.w500),),
             ],
           )),
     );
