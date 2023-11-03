@@ -31,7 +31,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
         type: BottomNavigationBarType.fixed,
         items: [
           const BottomNavigationBarItem(
-              icon: Icon(Icons.home , size: 40,),
+              icon: Icon(Icons.home_filled, size: 40,),
               label: ""),
           BottomNavigationBarItem(
               icon: Image.asset(
@@ -40,12 +40,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
                 height: 35,
               ),
               label: ""),
-          BottomNavigationBarItem(
-              icon: Image.asset(
-                "Assets/icons/not1.png",
-                width: 35,
-                height: 35,
-              ),
+          const BottomNavigationBarItem(
+              icon: Icon(Icons.settings , size: 35),
               label: ""),
         ],
       ),

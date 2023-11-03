@@ -25,7 +25,7 @@ class _YourQuizModelState extends State<YourQuizModel> {
         height: 140,
         width: 220,
         decoration: BoxDecoration(
-          color: Colors.blue,
+          color: Colors.blue.shade700,
           borderRadius: BorderRadius.circular(12),
         ),
         child: Padding(

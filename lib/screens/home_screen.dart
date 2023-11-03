@@ -102,7 +102,7 @@ class _HomePageState extends State<HomePage> {
                   child: Container(
                     height: 120,
                     width: double.infinity,
-                    color: Colors.blue,
+                    color: Colors.blue.shade700,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
