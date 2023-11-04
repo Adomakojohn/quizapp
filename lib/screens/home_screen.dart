@@ -213,7 +213,10 @@ class _HomePageState extends State<HomePage> {
                  child: ListView.builder( physics: const BouncingScrollPhysics(),
                   itemCount: 3,
                   itemBuilder :(context, index) {
-                    return SectionsModel(title:sectionsModel[index].title, subtitle:sectionsModel[index].subtitle);
+                    return GestureDetector(onTap: () {
+                      Navigator.pushNamed(context,'/quizpage');
+                    },
+                      child: SectionsModel(title:sectionsModel[index].title, subtitle:sectionsModel[index].subtitle));
                   },
                  ),
                )

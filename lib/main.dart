@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quizapp/screens/bottom_nav_bar.dart';
+import 'package:quizapp/screens/quiz_page.dart';
 
 
 void main(){
@@ -11,9 +12,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      routes: {
+        '/quizpage' :(context) => const QuizPage()
+      },
       debugShowCheckedModeBanner: false,
-      home: BottomNavBar(),
+      home:const  BottomNavBar(),
     );
   }
 }
