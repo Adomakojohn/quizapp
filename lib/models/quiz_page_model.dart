@@ -26,7 +26,10 @@ class _QuizPageModelState extends State<QuizPageModel> {
         ),
         child: Row(
           children: [
-          Container()
+          Radio(value: 1, groupValue: 2, onChanged: (value) {
+            
+          },),
+          Text("the option", style: TextStyle(fontSize: 20 , fontWeight: FontWeight.w500),)
           ],
         ),
       ),

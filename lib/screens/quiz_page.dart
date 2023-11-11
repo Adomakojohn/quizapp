@@ -61,8 +61,9 @@ class _QuizPageState extends State<QuizPage> {
                     ),
                   ),
                   const SizedBox(height: 20,),
-                  SizedBox( height: 418, width: double.infinity,
-                    child: ListView.builder(
+                  SizedBox(
+                     height: 418, width: double.infinity,
+                    child: ListView.builder( physics:const NeverScrollableScrollPhysics(),
                       itemCount: 4,
                       itemBuilder: (context, index) => const QuizPageModel(),),)
                 ],
