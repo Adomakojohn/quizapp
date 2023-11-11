@@ -11,7 +11,7 @@ class _QuizPageModelState extends State<QuizPageModel> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding:  EdgeInsets.all(8.0),
       child: Container(
         height: 90,width: double.infinity,
         decoration: const BoxDecoration(
@@ -24,9 +24,9 @@ class _QuizPageModelState extends State<QuizPageModel> {
             left: BorderSide(color: Colors.grey)
           ),
         ),
-        child:const Row(
+        child: Row(
           children: [
-            
+          Container()
           ],
         ),
       ),
