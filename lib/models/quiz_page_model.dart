@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
 
 class QuizPageModel extends StatefulWidget {
-  const QuizPageModel({super.key});
+  
+   const QuizPageModel({super.key ,});
 
   @override
   State<QuizPageModel> createState() => _QuizPageModelState();
 }
 
+List<String> options = ["option 1" , "option 2"];
+
 class _QuizPageModelState extends State<QuizPageModel> {
+
+  String currrentOption = options[0];
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -26,8 +32,10 @@ class _QuizPageModelState extends State<QuizPageModel> {
         ),
         child: Row(
           children: [
-          Radio(value: 1, groupValue: 2, onChanged: (value) {
-            
+          Radio(value: options[1], groupValue: currrentOption, onChanged: (value) {
+            setState(() {
+              currrentOption = value.toString();
+            });
           },),
           Text("the option", style: TextStyle(fontSize: 20 , fontWeight: FontWeight.w500),)
           ],

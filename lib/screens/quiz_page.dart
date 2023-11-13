@@ -65,7 +65,9 @@ class _QuizPageState extends State<QuizPage> {
                      height: 418, width: double.infinity,
                     child: ListView.builder( physics:const NeverScrollableScrollPhysics(),
                       itemCount: 4,
-                      itemBuilder: (context, index) => const QuizPageModel(),),)
+                      itemBuilder: (context, index) => const QuizPageModel(
+                        
+                      ),),)
                 ],
               ),
             ),
